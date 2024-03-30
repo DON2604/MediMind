@@ -26,7 +26,7 @@ const Signup = () => {
       .post("/api/users/register", formData)
       .then((result) => {
         console.log(result);
-        navigate("/login");
+        navigate("/report");
       })
       .catch((err) => console.log(err));
   };

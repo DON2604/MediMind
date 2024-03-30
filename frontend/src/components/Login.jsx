@@ -1,72 +1,100 @@
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import logo from '../assets/login.jpg'; // Assuming you have a logo image
+import DOCImage from '../assets/login.jpg'; // Assuming you have a DOCImage
 
-import NavHead from "../components/Navbar"
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from "axios"
-const Signup = () =>
-{
- 
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
- 
+const Login = () => {
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  const handleSubmit = (e) => {
-      e.preventDefault()
-      axios.post('/api/users/login', {email,password})
-      .then(result => {console.log(result)
-          navigate('/profile')
-      })
-  .catch(err => console.log(err))
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-    return (
-      <>
-      <NavHead/>
-      <div className='absolute flex flex-col md:flex-row w-full md:w-[800px] h-auto md:h-[500px] ml-auto md:ml-[400px] mt-30 md:mt-20 gap-6'>
-      <div className='hidden md:block md:w-[600px] h-[510px]'>
-        <img src='../hehe.jpeg' className='w-full h-full object-cover rounded-lg' />
-    </div>
-    <form action='POST' onSubmit={handleSubmit} className='w-full md:w-11/12 max-w-[600px] px-8 py-1 rounded-3xl border-2 bg-wh border-gray-100'>
-        <h1 className='text-5xl font-semibold mt-10 text-center md:text-left'>Welcome Back</h1>
-        <p className='font-medium text-lg text-gray-500 mt-4 text-center md:text-left'>Welcome back! Please enter your details.</p>
-        <div className='mt-4'>
-            <div className='flex flex-col'>
-                <label className='text-lg font-medium text-gray-100'>Email</label>
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className='w-full border-2 border-gray-100 rounded-xl p-1 mt-1 text-lg bg-transparent'
-                    placeholder="Enter your email"
-                />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/api/users/login', formData);
+      console.log(response.data);
+      navigate('/report');
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
+
+  return (
+    <>
+      <div className="flex justify-center items-center h-screen gap-3" style={{ position: 'relative' }}>
+        <img
+          src={DOCImage}
+          alt="DOC"
+          className="h-screen rounded-xl shadow-green-500 shadow-md"
+          style={{
+            filter: 'blur(5px) brightness(0.4)',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: -1,
+            width: '1000px',
+            height: '580px',
+          }}
+        />
+        <img src={DOCImage} alt="DOC" className="h-2/3 rounded-xl shadow-green-500 shadow-md" />
+
+        <div className="bg-lblack h-2/3 w-1/4 rounded-xl shadow-green-500 shadow-md">
+          <div className="flex items-center ml-2 mt-3">
+            <img src={logo} alt="Logo" className="w-12 h-12 rounded-full" />
+            <Link to="/" className="ml-2 font-semibold">
+              MediMind-AI &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; <strong>Login</strong>
+            </Link>
+          </div>
+          <form onSubmit={handleSubmit} className="px-4 py-2 mt-20">
+            <div className="mt-4">
+              <label htmlFor="email" className="block text-green-300">
+                Email:
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
             </div>
-            <div className='flex flex-col mt-4'>
-                <label className='text-lg font-medium text-gray-100'>Password</label>
-                <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className='w-full border-2 border-gray-100 rounded-xl p-1 mt-1 bg-transparent text-lg'
-                    placeholder="Enter your password"
-                />
+            <div className="mt-4">
+              <label htmlFor="password" className="block text-green-300">
+                Password:
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
             </div>
-            <div className='mt-4 flex flex-col gap-y-4'>
-                <button type="submit" className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-2 bg-violet-500 rounded-xl text-white font-bold text-lg'>Log In</button>
+            <div className="mt-4 text-center">
+              <button
+                type="submit"
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-3"
+              >
+                Login
+              </button>
             </div>
+          </form>
         </div>
-    </form>
-</div>
+      </div>
+    </>
+  );
+};
 
-       
-        </> 
-    )
-}
-
-export default Signup
+export default Login;
