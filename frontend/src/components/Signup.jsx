@@ -1,116 +1,116 @@
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
+import logo from "../assets/logo.jpeg";
+import DOCImage from "../assets/login.jpg";
 
-import NavHead from "../components/Navbar"
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from "axios"
-const Signup = () =>
-{
-  const [username,setUsername] = useState('');
-  const [age,setAge] = useState('')
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
-  const [gender, setGender] = useState('')
+const Signup = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    age: '',
+    email: '',
+    password: '',
+    gender: ''
+  });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const handleSubmit = (e) => {
-      e.preventDefault()
-      axios.post('/api/users/register', {username,age,email,password,gender})
-      .then(result => {console.log(result)
-          navigate('/login')
+    e.preventDefault();
+    axios.post('/api/users/register', formData)
+      .then(result => {
+        console.log(result);
+        navigate('/login');
       })
-  .catch(err => console.log(err))
-  }
+      .catch(err => console.log(err))
+  };
 
-    return (
-      <>
-      <NavHead/>
-      <div className='absolute flex flex-col md:flex-row w-full md:w-[800px] h-auto md:h-[500px] ml-auto md:ml-[400px] mt-10 md:mt-0 gap-6'>
-      <div className='hidden md:block md:w-[600px] h-[510px]'>
-        <img src='../hehe.jpeg' className='w-full h-full object-cover rounded-lg' />
-    </div>
-    <form action='POST' onSubmit={handleSubmit} className='w-full md:w-11/12 max-w-[600px] px-8 py-1 rounded-3xl border-2 bg-wh border-gray-100'>
-        <h1 className='text-4xl font-semibold text-gray-100 text-center'>Sign Up</h1>
-        <div className='mt-4'>
-            <div className='flex flex-col'>
-                <label className='text-lg font-medium text-gray-100'>Name</label>
+  return (
+    <>
+    <div className="flex justify-center items-center h-screen gap-3 bg-cover" style={{ backgroundImage: `url(${DOCImage})`, filter: 'blur(50px)' }}>
+        <img
+          src={DOCImage}
+          alt="DOC"
+          className="h-2/3 rounded-xl shadow-green-500 shadow-md"
+        />
+        <div className="bg-lblack h-2/3 w-1/4 rounded-xl shadow-green-500 shadow-md ">
+          <div className="flex items-center ml-2 mt-3">
+            <img src={logo} alt="Logo" className="w-12 h-12 rounded-full" />
+            <Link to="/" className="ml-2 font-semibold">
+              MediMind-AI &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>SignUp</strong>
+            </Link>
+          </div>
+          <form onSubmit={handleSubmit} className="px-4 py-2">
+            <div className="mt-4">
+              <label htmlFor="username" className="block text-green-300">Username:</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
+            </div>
+            <div className="mt-4 flex justify-between">
+              <div className="w-1/2 pr-2">
+                <label htmlFor="age" className="block text-green-300">Age:</label>
                 <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    autoComplete="username"
-                    required
-                    className='w-full border-2 border-gray-100 rounded-xl p-1 mt-1 bg-transparent text-lg'
-                    placeholder="Enter your name"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                  type="text"
+                  id="age"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
+                  className="border rounded-md px-2 py-1 w-full text-green-800"
                 />
-            </div>
-            <div className='flex flex-col'>
-                <label className='text-lg font-medium text-gray-100'>Email</label>
+              </div>
+              <div className="w-1/2 pl-2">
+                <label htmlFor="gender" className="block text-green-300">Gender:</label>
                 <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className='w-full border-2 border-gray-100 rounded-xl p-1 mt-1 text-lg bg-transparent'
-                    placeholder="Enter your email"
+                  type="text"
+                  id="gender"
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  className="border rounded-md px-2 py-1 w-full text-green-800"
                 />
+              </div>
             </div>
-            <div className='flex flex-col'>
-                <label className='text-lg font-medium text-gray-100'>Age</label>
-                <input
-                    id="age"
-                    name="age"
-                    type="number"
-                    autoComplete="age"
-                    required
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                    className='w-full border-2 border-gray-100 rounded-xl p-1 mt-1 bg-transparent text-lg'
-                    placeholder="Enter your Age"
-                />
+            <div className="mt-4">
+              <label htmlFor="email" className="block text-green-300">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
             </div>
-            <div className='flex flex-col'>
-                <label className='text-lg font-medium text-gray-100'>Gender</label>
-                <select
-                    id="gender"
-                    name="gender"
-                    autoComplete="gender"
-                    required
-                    className='w-full border-2 border-gray-100 rounded-xl p-1 mt-1 bg-transparent text-gray-50 text-lg'
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                    placeholder="Enter your Age">
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
+            <div className="mt-4">
+              <label htmlFor="password" className="block text-green-300">Password:</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
             </div>
-            <div className='flex flex-col mt-4'>
-                <label className='text-lg font-medium text-gray-100'>Password</label>
-                <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className='w-full border-2 border-gray-100 rounded-xl p-1 mt-1 bg-transparent text-lg'
-                    placeholder="Enter your password"
-                />
+            <div className="mt-4 text-center">
+              <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-3">SignUp</button>
             </div>
-            <div className='mt-4 flex flex-col gap-y-4'>
-                <button type="submit" className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-2 bg-violet-500 rounded-xl text-white font-bold text-lg'>Sign Up</button>
-            </div>
+          </form>
         </div>
-    </form>
-</div>
- 
-       
-        </> 
-    )
+      </div>
+    </>
+  );
 }
 
-export default Signup
+export default Signup;
