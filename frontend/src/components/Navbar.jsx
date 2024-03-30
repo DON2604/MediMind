@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink, useMatch, useResolvedPath } from "react-router-dom";
 
-export default function Navbar() {
+export default function NavHead() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,8 +15,14 @@ export default function Navbar() {
           <img src="../logo.jpeg" alt="Logo" className="w-12 h-12 rounded-full" />
         </div> */}
         <div className="text-gray-200 flex text-3xl font-light">
-        <img src="../logo.jpeg" alt="Logo" className="w-12 h-12 rounded-full" />
-          <Link to="/" className=" ml-6">MediMind-AI</Link>
+          <img
+            src="../logo.jpeg"
+            alt="Logo"
+            className="w-12 h-12 rounded-full"
+          />
+          <Link to="/" className=" ml-6">
+            MediMind-AI
+          </Link>
         </div>
 
         {/* Hamburger menu icon */}
@@ -37,11 +43,27 @@ export default function Navbar() {
         </div>
 
         {/* Main navigation links */}
-        <ul className={`md:flex md:space-x-16 text-lg  text-gray-50 ${isMenuOpen ? "block" : "hidden"}`}>
-          <CustomLink to="/explore" className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1">Explore</CustomLink>
-          <CustomLink to="/services" className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1">Services</CustomLink>
-          <CustomLink to="/" className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1">Contact</CustomLink>
-          <Link to="/register" className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1">
+        <ul
+          className={`md:flex md:space-x-16 text-lg  text-gray-50 ${
+            isMenuOpen ? "block" : "hidden"
+          }`}
+        >
+          <CustomLink
+            to="/services"
+            className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1"
+          >
+            Services
+          </CustomLink>
+          <CustomLink
+            to="/"
+            className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1"
+          >
+            Contact
+          </CustomLink>
+          <Link
+            to="/register"
+            className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1"
+          >
             Sign in / Register
           </Link>
         </ul>
