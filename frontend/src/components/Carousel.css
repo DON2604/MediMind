@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+.container {
+    max-width: 124rem;
+    padding: 4rem 1rem;
+    margin: 0 auto;
+  }
+
+.section-white{
+   
+    /* padding: 70px; */
+ text-align: center;
+ margin-bottom: 150px;
+ 
+    
+}
+.section-title{
+    font-size: 0px;
+    font-weight: 600;
+    color: white;
+   
+}
+
+.container {
+    max-width: 124rem;
+    padding: 1rem 1rem;
+    margin: 0 auto;
+  }
+
+  .heading {
+    padding: 1rem 0;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  
+  .swiper_container {
+    height: 52rem;
+    padding: 2rem 0;
+    position: relative;
+  }
+  
+  .swiper-slide {
+    width: 37rem;
+    height: 42rem;
+    position: relative;
+  }
+  
+  @media (max-width: 500px) {
+    .swiper_container {
+      height: 47rem;
+    }
+    .swiper-slide {
+      width: 28rem !important;
+      height: 36rem !important;
+    }
+}
+
+
+
+/* Arnabh's team */
+
+.team-member{
+    margin-top: 40px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  
+}
+
+.team-item{
+  
+    background: rgb(61, 68, 71);
+    background: linear-gradient(90deg, rgb(27, 32, 37) 0%, rgb(46, 59, 103) 100%);
+    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px 0; */
+    padding: 50px 20px 60px 20px;
+    border-radius: 8px 8px;
+    height: 450px;
+    width: 500px;
+   
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out ;
+    -ms-transiton:all 0.25s ease-in-out;
+    -o-transition:all 0.25s ease-in-out ;
+    transition: all 0.25s ease-in-out;
+}
+
+.team-item:hover{
+    background: #797db2; 
+    /* #c3c5d4 */
+    color: white;    
+}
+
+.team-item h3{
+    margin: 20px 0 1px 0 !important ;
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out ;
+    transition: all 0.25s ease-in-out;
+}
+.section-subtitle{
+    white-space: pre-line;
+}
+
+.team-item:hover h3{
+    color: #ddd;   
+}
+
+.team-info{
+    display: block;
+    margin-bottom: 0;    
+}
+
+.team-info p{
+    color:black;
+    font-style: italic;
+}
+
+.team-info::after{
+    background: #008aff;
+    background: -webkit-linear-gradient(
+        135deg,#6B02ff 0%, #985BEF 100%
+    );
+    background:-o-linear-gradient(
+        135deg,#6B02ff 0%, #985BEF 100%
+    ) ;
+    background:-moz-linear-gradient(
+        135deg,#6B02ff 0%, #985BEF 100%
+    ) ;
+    background:linear-gradient(
+        135deg,#6B02ff 0%, #985BEF 100%
+    ) ;
+
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 50px;
+    height: 3px;
+    margin-top: -20px;
+}
+
+.team-img{
+    height: 180px;
+    width: 180px;
+    padding: 6px 6px;
+
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    margin-left: 135px;
+    
+  
+    background-color:rgb(119, 122, 125);
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+}
+
+ul.team.icon{
+   margin-top: 25px; 
+   justify-content: center;
+   display: flex;
+   align-items: center;
+}
+ul.team-icon li{
+    display: inline-block;
+    margin: 0 3px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out ;
+    -ms-transiton:all 0.25s ease-in-out;
+    -o-transition:all 0.25s ease-in-out ;
+    transition: all 0.25s ease-in-out;
+}
+
+ul.team-icon li a{
+    margin: 0;
+    display: inline-block;
+    padding: 8px 8px;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+    line-height: 18px;
+    background-color:white ;
+    border-radius:50% ;
+    color: #fff;
+    margin-top: 10px;
+}
+
+ul.team-icon li a.github{
+    background-color: black;
+
+}
+ul.team-icon li a.linkedin{
+    background-color: #008aff;
+}
+
+.ul.team-icon li a:hover{
+    color: #dedede;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out ;
+    -ms-transiton:all 0.25s ease-in-out;
+    -o-transition:all 0.25s ease-in-out ;
+    transition: all 0.25s ease-in-out;
+}
