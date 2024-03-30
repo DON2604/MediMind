@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../assets/login.jpg'; // Assuming you have a logo image
+import logo from '../assets/logo.jpeg'; // Assuming you have a logo image
 import DOCImage from '../assets/login.jpg'; // Assuming you have a DOCImage
 
 const Login = () => {
@@ -55,7 +55,7 @@ const Login = () => {
               &nbsp; &nbsp; &nbsp; &nbsp; <strong>Login</strong>
             </Link>
           </div>
-          <form onSubmit={handleSubmit} className="px-4 py-2 mt-20">
+          <form onSubmit={handleSubmit} className="px-4 py-2 mt-10">
             <div className="mt-4">
               <label htmlFor="email" className="block text-green-300">
                 Email:
@@ -85,7 +85,7 @@ const Login = () => {
             <div className="mt-4 text-center">
               <button
                 type="submit"
-                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-3"
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-8"
               >
                 Login
               </button>
