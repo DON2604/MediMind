@@ -13,6 +13,7 @@ const Report = () => {
     medicalHistory: "",
     medications: "",
     imageData: null,
+    imagePreview: null, // Added state for image preview
   });
 
   const handleChange = (e) => {
@@ -24,10 +25,16 @@ const Report = () => {
   };
 
   const handleImage = (e) => {
-    setFormData({
-      ...formData,
-      imageData: e.target.files[0],
-    });
+    const imageFile = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(imageFile);
+    reader.onloadend = () => {
+      setFormData({
+        ...formData,
+        imageData: imageFile,
+        imagePreview: reader.result, // Set base64 image data
+      });
+    };
   };
 
   const handleSubmit = (e) => {
@@ -70,18 +77,27 @@ const Report = () => {
             onSubmit={handleSubmit}
             className="px-4 py-2 flex flex-wrap justify-between"
           >
-            <div className="mt-4">
-              <label htmlFor="imageData" className="block text-green-300">
-                Upload Image:
-              </label>
-              <input
-                type="file"
-                id="imageData"
-                name="imageData"
-                accept="image/*"
-                onChange={handleImage}
-                className="mt-1"
-              />
+            <div className="mt-4 flex items-center">
+              <div className="mr-4">
+                <label htmlFor="imageData" className="block text-green-300">
+                  Upload Image:
+                </label>
+                <input
+                  type="file"
+                  id="imageData"
+                  name="imageData"
+                  accept="image/*"
+                  onChange={handleImage}
+                  className="mt-1"
+                />
+              </div>
+              {formData.imagePreview && (
+                <img
+                  src={formData.imagePreview}
+                  alt="Preview"
+                  className="w-16 h-16 object-cover rounded-md -ml-20"
+                />
+              )}
             </div>
             <div className="mt-4 w-1/3">
               <label htmlFor="age" className="block text-green-300">
