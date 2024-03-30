@@ -42,12 +42,14 @@ const Signup = () => {
           alt="DOC"
           className="h-screen rounded-xl shadow-green-500 shadow-md"
           style={{
-            filter: "blur(5px)",
+            filter: "blur(5px) brightness(0.4)",
             position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             zIndex: -1,
+            width:'1000px',
+            height:'580px',
           }}
         />
         <img
