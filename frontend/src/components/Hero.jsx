@@ -20,7 +20,7 @@ const Hero = () => {
             GlowGenius: Skin AI Rx
           </h1>
 
-          <p className="text-gray-100 text-xl ml-[28px] md:text-xl lg:w-[800px] lg:pt-4 lg:text-xl font-normal leading-tight lg:p-20  md:px-0 mb-8 ">
+          <p className="text-gray-100 text-xl md:text-xl lg:w-[800px] lg:pt-4 lg:text-xl font-normal leading-tight lg:p-20  md:px-0 mb-8 ">
           Welcome to MediMind-AI, where technology meets compassion to empower
             you on your health journey. Say goodbye to uncertainty and hello to
             confidence as our AI analyzes your skin conditions and provides
