@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  
+    /* background: rgba(28,36,40,0.5);
+    background: linear-gradient(90deg, rgba(28,36,40,1) 0%, rgba(22,34,38,1) 42%, rgba(12,80,66,1) 100%); */
+    
+    background: rgba(1,25,21,1);
+    background: linear-gradient(90deg, black 0%, rgba(1,25,21,1) 100%); 
+    /* opacity: 25;*/
+    color: aliceblue;
+    
+    }
+
+    
+    .slick-slide > div {
+        margin: 0 10px;
+      }
+      
+      .slick-dots li.slick-active button:before {
+        color:orange !important;
+      }
+
