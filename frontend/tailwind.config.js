@@ -12,8 +12,13 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       dgreen: '#012403',
+      lblack:'#091811',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'doc': "url('../frontend/src/assets/DOC.png')",
+      }
+    },
   },
   plugins: [],
 }

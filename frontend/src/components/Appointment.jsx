@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import NavHead from "./Navbar";
-import DOCImage from "../assets/DOC.png"; // Import your image
+import DOCImage from "../assets/DOC.png";
+import logo from "../assets/logo.jpeg";
+import { Link, NavLink, useMatch, useResolvedPath } from "react-router-dom";
 
 function Appointment() {
   const [formData, setFormData] = useState({
@@ -8,6 +10,7 @@ function Appointment() {
     email: "",
     date: "",
     time: "",
+    phoneNumber: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -29,6 +32,7 @@ function Appointment() {
         email: "",
         date: "",
         time: "",
+        phoneNumber: "",
       });
     }, 1000);
   };
@@ -36,8 +40,81 @@ function Appointment() {
   return (
     <>
       <div className="flex justify-center items-center h-screen gap-3">
-        <div className="bg-lblack h-1/2 w-1/4">jhjh</div>
-        <img src={DOCImage} alt="DOC" className="h-2/3" />
+        <div className="bg-lblack h-2/3 w-1/4 rounded-xl shadow-green-500 shadow-md	">
+          <div className="flex items-center ml-2 mt-3">
+            <img src={logo} alt="Logo" className="w-12 h-12 rounded-full" />
+            <Link to="/" className="ml-2 font-semibold">
+              MediMind-AI
+            </Link>
+          </div>
+          <form onSubmit={handleSubmit} className="px-4 py-2">
+            <div className="mt-4">
+              <label htmlFor="name" className="block text-green-300">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800" // Modified text color here
+              />
+            </div>
+            <div className="mt-4">
+              <label htmlFor="email" className="block text-green-300">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800" // Modified text color here
+              />
+            </div>
+            <div className="mt-4 flex justify-between">
+              <div>
+                <label htmlFor="date" className="block text-green-300">Date of Appointment:</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="border rounded-md px-2 py-1 text-green-800" // Modified text color here
+                />
+              </div>
+              <div>
+                <label htmlFor="time" className="block text-green-300">Time:</label>
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  className="border rounded-md px-2 py-1 text-green-800" // Modified text color here
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+              <label htmlFor="phoneNumber" className="block text-green-300">Phone Number:</label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800" // Modified text color here
+              />
+            </div>
+            <div className="mt-4 text-center">
+              <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800">Submit</button>
+            </div>
+          </form>
+        </div>
+        <img
+          src={DOCImage}
+          alt="DOC"
+          className="h-2/3 rounded-xl shadow-green-500 shadow-md"
+        />
       </div>
     </>
   );
