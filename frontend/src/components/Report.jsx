@@ -1,200 +1,187 @@
-import React , {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
-//import axios from 'axios';
-//import formpic from '../assets/formpic.png'
-
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import logo from "../assets/logo.jpeg";
+import DOCImage from "../assets/TESTING.webp";
 
 const Report = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    age: "",
+    gender: "",
+    duration: "",
+    symptoms: "",
+    medicalHistory: "",
+    medications: "",
+    imageData: null,
+  });
 
-    // const [username,setName] = useState()
-    // const [contact,setContact] = useState()
-    // const [address,setAddress] = useState()
-    // const [category,setCategory] = useState()
-    // const [description,setDescription] = useState()
-    // const [image, setImage] = useState();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-    const navigate = useNavigate();
+  const handleImage = (e) => {
+    setFormData({
+      ...formData,
+      imageData: e.target.files[0],
+    });
+  };
 
-    // const reportSubmit = async(e) => {
-    //     e.preventDefault()
-
-    //     try{
-
-    //         await axios.post("/api/complaint/new-complaint",
-    //             {username,contact,address,category,description}
-    //             .then(result => {console.log(result)
-    //                 navigate('/')
-    //             })
-    //         )
-
-    //     }
-    //     catch(err){
-
-    //         console.log(err);
-    //     }
-    // }
-
-    // const reportSubmit = (e) => {
-    //     e.preventDefault()
-    //     axios.post('/api/complaint/new-complaint', 
-    //         {username,contact,address,category,description}
-    //     )
-    //     .then(result => {console.log(result)
-    //         navigate('/success')
-    //     })
-    // .catch(err => console.log(err))
-    // }
-
-    const handleImage = (e) => {
-        console.log(e.target.files)
-        setImage(e.target.files[0])
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Your form submission logic goes here
+    // For example, you can navigate to another page after successful submission
+    navigate("/dashboard"); // Replace "/dashboard" with the desired URL
+  };
 
   return (
-    <div className=' h-screen flex '>
-        
-        {/* onSubmit={reportSubmit} */}
-        <form action='POST'  className=' m-6 ml-10 bg-white flex rounded-lg w-1/2 font-latoRegular'>
-            <div className=' flex-1 text-gray-700 p-12'>
-                <h1 className=' text-3xl pb-2 font-latoBold'>Report Problems</h1>
-                <p className=' text-lg text-gray-500 w-[700px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, ab! Lorem ipsum dolor sit amet.
+    <>
+      <div
+        className="flex justify-center items-center h-screen gap-3"
+        style={{ position: "relative" }}
+      >
+        <img
+          src={DOCImage}
+          alt="DOC"
+          className="h-screen rounded-xl shadow-green-500 shadow-md"
+          style={{
+            filter: "blur(5px) brightness(0.4)",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: -1,
+            width: "100%",
+            height: "100%",
+          }}
+        />
 
-                </p>
-
-                <div className=' mt-6'>
-                    <div className='pb-2'>
-                        <label className='name' htmlFor='username'>Name: </label>
-                        <input className=' border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-50'
-                             type='text' name='username' 
-                             placeholder='Enter your name: '
-                            //  onChange={(e) => setName(e.target.value)}
-                        /> 
-                    </div>
-                    <div className='pb-2'>
-                        <label className='age' htmlFor='contact'>Age: </label>
-                        <input className=' border-2 border-gray-500 p-2 rounded-md w-20 focus:border-teal-500 focus:ring-teal-50' 
-                            type='number' 
-                            name='age' 
-                            placeholder='Age: '
-                            // onChange={(e) => setContact(e.target.value)} 
-                        /> 
-
-                        <label className=' font-latoBold text-sm pb-2 ml-10' 
-                            htmlFor='gender'
-                        >Gender: </label>
-                        <select
-                                className='ml-4 p-2 border-2 rounded-md bg-slate-100 font-semibold'
-                                // value={category}
-                                // onChange={(e) => setCategory(e.target.value)}
-                            >
-                                <option value='Male'>Male</option>
-                                <option value='Female'>Female</option>
-                                <option value='others'>Others</option>
-                            </select>
-
-
-                    </div>
-                    <div className='pb-2'>
-                        <label className='dura' htmlFor='duration'>Duration of skin condition: </label>
-                        <input className=' border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-50' 
-                            type='text' 
-                            name='address' 
-                            placeholder='Enter duration of skin condition: '
-                            // onChange={(e) => setAddress(e.target.value)} 
-                        /> 
-                    </div>
-
-                    <div className='pb-2'>
-                        <label className='dura' htmlFor='duration'>Associated symptoms: </label>
-                        <input className=' border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-50' 
-                            type='text' 
-                            name='address' 
-                            placeholder='Enter associated symptoms: '
-                            // onChange={(e) => setAddress(e.target.value)} 
-                        /> 
-                    </div>
-                    <div className='pb-2'>
-                        <label className='dura' htmlFor='duration'>Relevant medical history: </label>
-                        <input className=' border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-50' 
-                            type='text' 
-                            name='address' 
-                            placeholder='Enter your relevant medical history: '
-                            // onChange={(e) => setAddress(e.target.value)} 
-                        /> 
-                    </div>
-                    <div className='pb-2'>
-                        <label className='dura' htmlFor='duration'>Current medications/treatments: </label>
-                        <input className=' border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-50' 
-                            type='text' 
-                            name='address' 
-                            placeholder='Enter your current medications/treatments: '
-                            // onChange={(e) => setAddress(e.target.value)} 
-                        /> 
-                    </div>
-
-                    {/* <div className='pb-2'>
-                        <label className=' font-latoBold text-sm pb-2' 
-                            htmlFor='category'
-                        >Problem Type: </label>
-                        <select
-                                className='ml-4 p-2 border-2 rounded-md bg-slate-100 font-semibold'
-                                value={category}
-                                // onChange={(e) => setCategory(e.target.value)}
-                            >
-                                <option value='Leakage'>Leakage</option>
-                                <option value='Jammed'>Jammed</option>
-                                <option value='Drain overflow'>Drain overflow</option>
-                                <option value='others'>Others</option>
-                            </select>
-                    </div> */}
-                    <div className='pb-2 flex'>
-                        <label htmlFor='description'>Description: </label>
-                        <input className=' ml-4 border-2 border-gray-500 p-2 rounded-md w-[350px] h-[90px] focus:border-teal-500 focus:ring-teal-50' 
-                            type='text' 
-                            name='description' 
-                            placeholder='Describe your problem... '
-                            // onChange={(e) => setDescription(e.target.value)} 
-                        /> 
-                        
-                        <input className=' ml-6 mt-6' type='file' name='file' onChange={handleImage} />
-                        
-                    
-                    </div>
-                    
-
-                    <div className='flex justify-center items-center'>
-                      <button 
-                        type='submit'
-                        className='bg-teal-500   font-latoBold text-md text-white py-3 mt-[10px] rounded-full  w-[250px] hover:bg-cyan-200 hover:text-blue-950 hover:font-semibold'>
-                            Submit
-                        </button>
-
-                        <button onClick={() => navigate("/")} className='p-1 border-1 rounded-3xl bg-slate-300 w-20 ml-48  mt-2'>Go Back</button>  
-
-                    </div>
-
-                    
-                    
-
-                </div>
+        <div className="bg-lblack h-5/6 w-1/2 rounded-xl shadow-green-500 shadow-md">
+          <div className="flex items-center ml-2 mt-3">
+            <img src={logo} alt="Logo" className="w-12 h-12 rounded-full" />
+            <Link to="/" className="ml-2 font-semibold">
+              MediMind-AI 
+              <strong className="ml-96">Report Portal</strong>
+            </Link>
+          </div>
+          <form
+            onSubmit={handleSubmit}
+            className="px-4 py-2 flex flex-wrap justify-between"
+          >
+            <div className="mt-4">
+              <label htmlFor="imageData" className="block text-green-300">
+                Upload Image:
+              </label>
+              <input
+                type="file"
+                id="imageData"
+                name="imageData"
+                accept="image/*"
+                onChange={handleImage}
+                className="mt-1"
+              />
+            </div>
+            <div className="mt-4 w-1/3">
+              <label htmlFor="age" className="block text-green-300">
+                Age:
+              </label>
+              <input
+                type="text"
+                id="age"
+                name="age"
+                value={formData.age}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
+            </div>
+            <div className="mt-4 w-1/3">
+              <label htmlFor="gender" className="block text-green-300">
+                Gender:
+              </label>
+              <input
+                type="text"
+                id="gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
+            </div>
+            <div className="mt-4 w-1/3">
+              <label htmlFor="duration" className="block text-green-300">
+                Duration:
+              </label>
+              <input
+                type="text"
+                id="duration"
+                name="duration"
+                value={formData.duration}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full text-green-800"
+              />
+            </div>
+            <div className="mt-4 w-full">
+              <label htmlFor="symptoms" className="block text-green-300">
+                Symptoms:
+              </label>
+              <textarea
+                id="symptoms"
+                name="symptoms"
+                value={formData.symptoms}
+                onChange={handleChange}
+                className="border rounded-md px-2 py-1 w-full h-20 resize-none text-green-800"
+              ></textarea>
+            </div>
+            <div className="mt-4 w-full flex">
+              <div className="w-1/2 mr-2">
+                <label
+                  htmlFor="medicalHistory"
+                  className="block text-green-300"
+                >
+                  Medical History:
+                </label>
+                <textarea
+                  id="medicalHistory"
+                  name="medicalHistory"
+                  value={formData.medicalHistory}
+                  onChange={handleChange}
+                  className="border rounded-md px-2 py-1 w-full h-20 resize-none text-green-800"
+                ></textarea>
+              </div>
+              <div className="w-1/2 ml-2">
+                <label htmlFor="medications" className="block text-green-300">
+                  Medications:
+                </label>
+                <textarea
+                  id="medications"
+                  name="medications"
+                  value={formData.medications}
+                  onChange={handleChange}
+                  className="border rounded-md px-2 py-1 w-full h-20 resize-none text-green-800"
+                ></textarea>
+              </div>
             </div>
 
-            {/* <div className=' flex-1'>
-                <img src='../formpic.png' fill className=' mt-48 w-[400px]' /> 
-            </div> */}
-
-        </form>
-
-         {/* <button onClick={() => navigate(-1)} className='p-1 border-1 rounded-3xl bg-slate-300 w-20 ml-48  mt-2'>Go Back</button>   */}
-
-
-         <div className=' flex-1 ml-6'>
-                <img src='../formpic.png' className=' mt-10 w-[600px]  object-cover rounded-lg ' /> 
+            <div className="mt-4 w-full text-center">
+              <button
+                type="submit"
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-3"
+              >
+                Submit
+              </button>
             </div>
+          </form>
+        </div>
+        <img
+          src={DOCImage}
+          alt="DOC"
+          className="h-5/6 rounded-xl shadow-green-500 shadow-md"
+        />
+      </div>
+    </>
+  );
+};
 
-        
-    </div>
-  )
-}
-
-export default Report
+export default Report;
