@@ -46,7 +46,8 @@ jobs:
         run: cd frontend
 
       - name: Install Cypress Dependencies
-        run: npm install cypress --save-dev
+        run: npm install --save-dev cypress
 
       - name: Run Cypress Tests
-        run: npm run cypress:run
+        run: npx cypress run
+
