@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../assets/logo.jpeg";
 import DOCImage from "../assets/TESTING.webp";
+import Response from "./Response";
+import axios from 'axios';
 
 const Report = () => {
   const navigate = useNavigate();
@@ -41,7 +43,7 @@ const Report = () => {
     e.preventDefault();
     // Your form submission logic goes here
     // For example, you can navigate to another page after successful submission
-    navigate("/dashboard"); // Replace "/dashboard" with the desired URL
+    navigate("/Response"); // Replace "/dashboard" with the desired URL
   };
 
   return (
@@ -183,7 +185,7 @@ const Report = () => {
             <div className="mt-4 w-full text-center">
               <button
                 type="submit"
-                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-3"
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-6"
               >
                 Submit
               </button>
