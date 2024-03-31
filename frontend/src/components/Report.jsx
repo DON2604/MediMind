@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import logo from "../assets/logo.jpeg";
 import DOCImage from "../assets/TESTING.webp";
+import Response from "./Response";
+import axios from 'axios';
 
 const Report = () => {
   const navigate = useNavigate();
@@ -200,7 +202,7 @@ const Report = () => {
             <div className="mt-4 w-full text-center">
               <button
                 type="submit"
-                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-3"
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800 mt-6"
               >
                 Submit
               </button>

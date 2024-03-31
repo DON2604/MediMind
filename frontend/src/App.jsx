@@ -16,6 +16,7 @@ import Doctors from "./components/Doctors";
 import Appointment from "./components/Appointment";
 import Response from "./components/Response";
 //import Logout from "./components/Logout";
+import Response from "./components/Response";
 
 
 
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/report" element={<Report />} />
           <Route path="/response" element={<Response />} />
           <Route path="/doctors" element={<Doctors />} />  
+          <Route path="/Response" element={<Response />} />  
          
         </Routes>
         </BrowserRouter>
