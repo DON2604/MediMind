@@ -17,6 +17,22 @@ const Report = () => {
     imagePreview: null, // Added state for image preview
   });
 
+  // useEffect(() => {
+  //   // Check if access token and refresh token are present in cookies
+  //   const accessToken = getCookie("accessToken");
+  //   const refreshToken = getCookie("refreshToken");
+
+  //   if (!accessToken || !refreshToken) {
+  //     navigate("/login"); // Redirect to login page if tokens are not present
+  //   }
+  // }, [navigate]);
+
+  // const getCookie = (name) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop().split(";").shift();
+  // };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({

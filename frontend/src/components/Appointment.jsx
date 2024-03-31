@@ -1,10 +1,27 @@
 import React, { useState } from "react";
 import DOCImage from "../assets/DOC.png";
 import logo from "../assets/logo.jpeg";
-import { Link  } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import axios from 'axios';
 
 function Appointment() {
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   // Check if access token and refresh token are present in cookies
+  //   const accessToken = getCookie("accessToken");
+  //   const refreshToken = getCookie("refreshToken");
+
+  //   if (!accessToken || !refreshToken) {
+  //     navigate("/login"); // Redirect to login page if tokens are not present
+  //   }
+  // }, [navigate]);
+
+  // const getCookie = (name) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop().split(";").shift();
+  // };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",

@@ -1,8 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css'; 
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { useNavigate } from 'react-router-dom';
 
 const Maps = () => {
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   // Check if access token and refresh token are present in cookies
+  //   const accessToken = getCookie("accessToken");
+  //   const refreshToken = getCookie("refreshToken");
+
+  //   if (!accessToken || !refreshToken) {
+  //     navigate("/login"); // Redirect to login page if tokens are not present
+  //   }
+  // }, [navigate]);
+
+  // const getCookie = (name) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop().split(";").shift();
+  // };
   const [center, setCenter] = useState([0, 0]);
   const [doctorsLocations, setDoctorsLocations] = useState([]);
 

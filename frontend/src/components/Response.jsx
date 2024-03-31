@@ -1,7 +1,23 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom'; // Import useLocation from react-router-dom
+import { useLocation, useNavigate } from 'react-router-dom'; // Import useLocation from react-router-dom
 
 function Response() {
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   // Check if access token and refresh token are present in cookies
+  //   const accessToken = getCookie("accessToken");
+  //   const refreshToken = getCookie("refreshToken");
+
+  //   if (!accessToken || !refreshToken) {
+  //     navigate("/login"); // Redirect to login page if tokens are not present
+  //   }
+  // }, [navigate]);
+
+  // const getCookie = (name) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop().split(";").shift();
+  // };
   // Use useLocation hook to access location state
   const location = useLocation();
   const { responseData } = location.state || {};
