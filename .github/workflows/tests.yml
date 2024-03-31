@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-
   pull_request:
     branches:
       - main
-
 
 jobs:
   backend-tests:
@@ -24,11 +22,14 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Change Directory to Backend
+        run: cd backend
+
       - name: Install Backend Dependencies
-        run: cd backend && npm install
+        run: npm install
 
       - name: Run Backend Tests
-        run: cd backend && npm test
+        run: npm test
 
   frontend-tests:
     name: Frontend Tests
@@ -43,8 +44,33 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Change Directory to Frontend
+        run: cd frontend
+
       - name: Install Frontend Dependencies
-        run: cd frontend && npm install
+        run: npm install
 
       - name: Run Frontend Tests
-        run: cd frontend && npm test
+        run: npm test
+
+  cypress-tests:
+    name: Cypress Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Change Directory to Frontend
+        run: cd frontend
+
+      - name: Install Cypress Dependencies
+        run: npm install cypress --save-dev
+
+      - name: Run Cypress Tests
+        run: npm run cypress:run
