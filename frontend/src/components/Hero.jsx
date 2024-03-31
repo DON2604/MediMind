@@ -33,7 +33,7 @@ const Hero = () => {
           <div className="flex flex-col md:flex-row items-center  lg:flex md:ml-[50px] lg:items-start lg:ml-[100px]">
             <button
               onClick={() => navigate("/register")}
-              className="bg-green-900 hover:bg-slate-400 border-2 hover:border-2 text-white font-bold py-6 px-10 rounded-full mb-4 md:mb-0 md:mr-4  mr-4"
+              className="bg-lblack hover:bg-slate-400 border-2 hover:border-2 text-white text-2xl font-bold py-6 px-10 rounded-full mb-4 md:mb-0 md:mr-4  mr-4"
             >
               Get Started
             </button>
