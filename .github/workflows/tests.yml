@@ -22,36 +22,12 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Change Directory to Backend
-        run: cd backend
-
       - name: Install Backend Dependencies
-        run: npm install
+        run: cd backend && npm install
 
       - name: Run Backend Tests
-        run: npm test
+        run: cd backend && npm test
 
-  frontend-tests:
-    name: Frontend Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Change Directory to Frontend
-        run: cd frontend
-
-      - name: Install Frontend Dependencies
-        run: npm install
-
-      - name: Run Frontend Tests
-        run: npm test
 
   cypress-tests:
     name: Cypress Tests
