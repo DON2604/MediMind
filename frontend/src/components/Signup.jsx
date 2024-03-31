@@ -142,6 +142,15 @@ const Signup = () => {
                 SignUp
               </button>
             </div>
+            <div className=" text-gray-400  flex justify-center items-center  lg:mt-1 ">
+           
+              
+            
+            <Link to={"/login"}
+             >
+                 Already have an account?  
+              </Link>
+              </div>
           </form>
         </div>
       </div>

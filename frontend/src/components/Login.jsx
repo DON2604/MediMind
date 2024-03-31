@@ -90,6 +90,16 @@ const Login = () => {
                 Login
               </button>
             </div>
+            <p className=" text-gray-400  flex justify-center items-center text-xl font-medium lg:mt-4 ">OR</p>
+            <div className=" text-gray-400  flex justify-center items-center  lg:mt-2 font-medium ">
+           
+              
+            
+            <Link to={"/register"}
+             >
+                 Create new account  
+              </Link>
+              </div>
           </form>
         </div>
       </div>
