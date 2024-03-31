@@ -52,6 +52,22 @@ function Appointment() {
   return (
     <>
       <div className="flex justify-center items-center h-screen gap-3">
+        <img
+          src={DOCImage}
+          alt="DOC"
+          className="h-screen rounded-xl shadow-green-500 shadow-md"
+          style={{
+            filter: "blur(5px) brightness(0.4)",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: -1,
+            width: "1000px",
+            height: "580px",
+          }}
+        />
+
         <div className="bg-lblack h-2/3 w-1/4 rounded-xl shadow-green-500 shadow-md	">
           <div className="flex items-center ml-2 mt-3">
             <img src={logo} alt="Logo" className="w-12 h-12 rounded-full" />
@@ -61,7 +77,9 @@ function Appointment() {
           </div>
           <form onSubmit={handleSubmit} className="px-4 py-2">
             <div className="mt-4">
-              <label htmlFor="name" className="block text-green-300">Name:</label>
+              <label htmlFor="name" className="block text-green-300">
+                Name:
+              </label>
               <input
                 type="text"
                 id="name"
@@ -72,7 +90,9 @@ function Appointment() {
               />
             </div>
             <div className="mt-4">
-              <label htmlFor="email" className="block text-green-300">Email:</label>
+              <label htmlFor="email" className="block text-green-300">
+                Email:
+              </label>
               <input
                 type="email"
                 id="email"
@@ -84,7 +104,9 @@ function Appointment() {
             </div>
             <div className="mt-4 flex justify-between">
               <div>
-                <label htmlFor="date" className="block text-green-300">Date of Appointment:</label>
+                <label htmlFor="date" className="block text-green-300">
+                  Date of Appointment:
+                </label>
                 <input
                   type="date"
                   id="date"
@@ -95,7 +117,9 @@ function Appointment() {
                 />
               </div>
               <div>
-                <label htmlFor="time" className="block text-green-300">Time:</label>
+                <label htmlFor="time" className="block text-green-300">
+                  Time:
+                </label>
                 <input
                   type="time"
                   id="time"
@@ -107,7 +131,9 @@ function Appointment() {
               </div>
             </div>
             <div className="mt-4">
-              <label htmlFor="phoneNumber" className="block text-green-300">Phone Number:</label>
+              <label htmlFor="phoneNumber" className="block text-green-300">
+                Phone Number:
+              </label>
               <input
                 type="tel"
                 id="phoneNumber"
@@ -118,7 +144,12 @@ function Appointment() {
               />
             </div>
             <div className="mt-4 text-center">
-              <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800">Submit</button>
+              <button
+                type="submit"
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-800"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
