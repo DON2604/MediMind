@@ -3,18 +3,23 @@ import NavHead from './Navbar';
 
 const services = [
   {
-    title: 'Leakage',
-    description: 'We build modern, responsive websites that are tailored to your specific needs.',
+    title: 'Health Monitoring',
+    description: 'Utilize wearable devices and AI algorithms to monitor vital signs, track health metrics, and provide real-time alerts for potential health issues.',
     icon: 'fa-solid fa-code',
   },
   {
-    title: 'Drainage',
-    description: 'Create a user-friendly mobile app that helps you connect with your audience.',
+    title: 'Diagnostic Imaging Analysis',
+    description: 'AI-powered analysis of medical imaging data (such as X-rays, MRIs, CT scans) for accurate diagnosis and detection of abnormalities',
     icon: 'fa-solid fa-mobile',
   },
   {
-    title: 'Clogged',
-    description: 'Improve your website\'s ranking and reach a wider audience through search engines.',
+    title: 'Predictive Analytics',
+    description: 'AI algorithms analyze patient data to predict disease progression, identify high-risk individuals, and recommend preventive interventions..',
+    icon: 'fa-solid fa-search',
+  },
+  {
+    title: 'Remote Patient Monitoring',
+    description: 'Continuous monitoring of patient health data remotely using AI-enabled devices, allowing early detection of health issues and proactive intervention.',
     icon: 'fa-solid fa-search',
   },
   {
@@ -23,13 +28,8 @@ const services = [
     icon: 'fa-solid fa-search',
   },
   {
-    title: 'Quick Services',
-    description: 'Improve your website\'s ranking and reach a wider audience through search engines.',
-    icon: 'fa-solid fa-search',
-  },
-  {
-    title: 'Quick Services',
-    description: 'Improve your website\'s ranking and reach a wider audience through search engines.',
+    title: 'Virtual Health Assistants',
+    description: 'AI-driven virtual assistants provide personalized health guidance, medication management, and lifestyle recommendations through natural language interaction.',
     icon: 'fa-solid fa-search',
   },
   
