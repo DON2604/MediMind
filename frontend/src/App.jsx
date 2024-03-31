@@ -14,6 +14,7 @@ import Services from "./components/Services";
 import Profile from "./components/Profile";
 import Doctors from "./components/Doctors";
 import Appointment from "./components/Appointment";
+import Response from "./components/Response";
 //import Logout from "./components/Logout";
 
 
@@ -42,6 +43,7 @@ const App = () => {
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="*" element={<NotFound />} />
           <Route path="/report" element={<Report />} />
+          <Route path="/response" element={<Response />} />
           <Route path="/doctors" element={<Doctors />} />  
          
         </Routes>
