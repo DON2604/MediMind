@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import NavHead from "./Navbar";
 import DOCImage from "../assets/DOC.png";
 import logo from "../assets/logo.jpeg";
-import { Link, NavLink, useMatch, useResolvedPath } from "react-router-dom";
+import { Link  } from "react-router-dom";
+import axios from 'axios';
 
 function Appointment() {
   const [formData, setFormData] = useState({
@@ -22,19 +22,31 @@ function Appointment() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
+  
+    // Perform form validation here
+    if (formData.name.trim() === '' || formData.email.trim() === '' || formData.date === '' || formData.time === '' || formData.phoneNumber === '') {
+      // Display error message for required fields
+      console.error('Please fill in all required fields.');
+      return;
+    }
+  
+    try {
+      await axios.post('/api/send-email', formData);
       setSubmitted(true);
       setFormData({
-        name: "",
-        email: "",
-        date: "",
-        time: "",
-        phoneNumber: "",
+        name: '',
+        email: '',
+        date: '',
+        time: '',
+        phoneNumber: '',
       });
-    }, 1000);
+      alert('Appointment booked successfully!');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('An error occurred. Please try again later.');
+    }
   };
 
   return (
