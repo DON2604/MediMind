@@ -142,11 +142,11 @@ const Signup = () => {
                 SignUp
               </button>
             </div>
-            <div className=" text-gray-400  flex justify-center items-center  lg:mt-1 ">
+            <div className=" text-gray-400  flex justify-center items-center  lg:mt-1 hover:text-green-500">
            
               
             
-            <Link to={"/login"}
+            <Link to={"/login"} 
              >
                  Already have an account?  
               </Link>

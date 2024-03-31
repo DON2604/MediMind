@@ -65,7 +65,7 @@ const Maps = () => {
 
   return (
     <div>
-      <div id="map" className='mt-4 h-[540px] w-[1300px] m-10 p-4'>
+      <div id="map" className='mt-4 h-[500px] w-[1420px] -mr-15 p-4'>
         <MapContainer center={center} zoom={13} style={{ width: '100%', height: '100%' }} className='w-[1500px]'>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
