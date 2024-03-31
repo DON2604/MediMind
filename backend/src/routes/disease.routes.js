@@ -1,12 +1,8 @@
 import express from "express";
 import { Router } from "express";
+import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
 
-import {
-  GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
-} from "@google/generative-ai";
-
+const router = Router();
 
 const MODEL_NAME = "gemini-1.0-pro-vision-latest";
 
@@ -59,7 +55,6 @@ async function generateContent(age, gender, duration, symptoms, medicalHistory, 
   const response = result.response;
   return response.text();
 }
-const router= Router();
 
 router.post("/disease", async (req, res) => {
   try {
