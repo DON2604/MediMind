@@ -43,7 +43,60 @@ async function generateContent(age, gender, duration, symptoms, medicalHistory, 
         data: imageData,
       },
     },
-    { text: `the following parameters:Patient's age: ${age} and gender: ${gender}. Duration of the skin condition: ${duration}. Associated symptoms: ${symptoms}. Relevant medical history: ${medicalHistory}. Current medications/treatments: ${medications}. AI Response: The image analysis indicates a possible skin condition of [specific skin condition], considering the patient's profile and symptoms. This condition is typically characterized by [detailed description of symptoms and appearance]. Recommended Treatment:Topical treatment: [Specify AI-generated topical creams, ointments, or solutions in details]. Oral medication: [Specify AI-generated oral medications in details, if applicable]. Lifestyle changes: [AI-generated recommendations for lifestyle adjustments, such as diet or hygiene practices in details]. Follow-up care: [AI-generated advice on follow-up appointments or monitoring]. Please note that a precise diagnosis and treatment plan should be provided by a healthcare professional after a thorough examination.` },
+    {
+      text: `Patient's age: ${age} and gender: ${gender}.`,
+    },
+    {
+      text: `Duration of the skin condition: ${duration}.`,
+    },
+    {
+      text: `Associated symptoms: ${symptoms}.`,
+    },
+    {
+      text: `Relevant medical history: ${medicalHistory}.`,
+    },
+    {
+      text: `Current medications/treatments: ${medications}.`,
+    },
+    {
+      text: "AI Analysis:",
+    },
+    {
+      text: "Detection:",
+    },
+    {
+      text: `The image analysis indicates a possible skin condition of [specific skin condition], considering the patient's profile and symptoms. This condition is typically characterized by [detailed description of symptoms and appearance].`,
+    },
+    {
+      text: "Treatment:",
+    },
+    {
+      text: "Topical treatment:",
+    },
+    {
+      text: "[Specify AI-generated topical creams, ointments, or solutions in details].",
+    },
+    {
+      text: "Oral medication:",
+    },
+    {
+      text: "[Specify AI-generated oral medications in details, if applicable].",
+    },
+    {
+      text: "Lifestyle changes:",
+    },
+    {
+      text: "[AI-generated recommendations for lifestyle adjustments, such as diet or hygiene practices in details].",
+    },
+    {
+      text: "Follow-up care:",
+    },
+    {
+      text: "[AI-generated advice on follow-up appointments or monitoring].",
+    },
+    {
+      text: "Please note that a precise diagnosis and treatment plan should be provided by a healthcare professional after a thorough examination.",
+    },
   ];
 
   const result = await model.generateContent({
@@ -53,7 +106,18 @@ async function generateContent(age, gender, duration, symptoms, medicalHistory, 
   });
 
   const response = result.response;
-  return response.text();
+  const generatedText = response.text() || '';
+
+  // Extract specific sections
+  const [_, detectionSection, treatmentSection, oralSection, lifestyleSection, followUpSection] = generatedText.split(/Detection:|Treatment:|Oral medication:|Lifestyle changes:|Follow-up care:/);
+
+  return {
+    detection: detectionSection ? detectionSection.trim() : '',
+    treatment: treatmentSection ? treatmentSection.trim() : '',
+    oralMedication: oralSection ? oralSection.trim() : '',
+    lifestyleChanges: lifestyleSection ? lifestyleSection.trim() : '',
+    followUpCare: followUpSection ? followUpSection.trim() : '',
+  };
 }
 
 router.post("/disease", async (req, res) => {
@@ -65,7 +129,7 @@ router.post("/disease", async (req, res) => {
     }
 
     const generatedText = await generateContent(age, gender, duration, symptoms, medicalHistory, medications, imageData);
-    res.status(200).json({ generatedText });
+    res.status(200).json(generatedText);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
