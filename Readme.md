@@ -1,2 +1,2 @@
-![Backend Tests](https://github.com/DON2604/MediMind/actions/workflows/build.yml)
+[![Build and Generate APK](https://github.com/DON2604/MediMind/actions/workflows/build.yml/badge.svg)](https://github.com/DON2604/MediMind/actions/workflows/build.yml)
 ![Frontend Tests](https://github.com/DON2604/MediMind/actions/workflows/build.yml)
