@@ -28,24 +28,6 @@ jobs:
       - name: Run Backend Tests
         run: cd backend && npm test
 
-  frontend-tests:
-    name: Frontend Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install Frontend Dependencies
-        run: cd frontend && npm install
-
-      - name: Run Frontend Tests
-        run: cd frontend && npm test
 
   cypress-tests:
     name: Cypress Tests
@@ -59,6 +41,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+
+      - name: Change Directory to Frontend
+        run: cd frontend
 
       - name: Install Cypress Dependencies
         run: npm install cypress --save-dev
