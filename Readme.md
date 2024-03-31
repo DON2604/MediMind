@@ -1,10 +1,19 @@
 [![tests](https://github.com/DON2604/MediMind/actions/workflows/tests.yml/badge.svg)](https://github.com/DON2604/MediMind/actions/workflows/tests.yml)
 
-# AI Healthcare Skin Diseases Website
+<p align="center">
+    <img src="https://github.com/DON2604/MediMind/assets/89240074/b039e5d6-6ea4-4a4d-a8c7-054076cc44fa" height="200px" width="200px">
+</p>
+
+# 🩺 MediMind-AI 🧠
 
 Welcome to our AI Healthcare Skin Diseases Website! This platform is dedicated to providing users with accurate information and insights about various skin diseases, powered by cutting-edge artificial intelligence technology. Our website is built using Vite for front-end development, Node.js for backend, and MongoDB as the database.
 
-## Features
+
+## Project Overview 🌟
+### Workflow👩‍💻🧑‍💻
+![maow](https://github.com/DON2604/MediMind/assets/89240074/d437cbc0-5e22-4edd-93db-3a77fcae8f96)
+
+## Features ✨
 
 - **AI-Powered Diagnosis:** Our platform utilizes advanced machine learning algorithms to provide accurate diagnosis and information about skin diseases based on uploaded images or symptoms entered by the user.
 - **Comprehensive Database:** We maintain a comprehensive database of various skin diseases, symptoms, and treatment options, constantly updated with the latest medical research and findings.
@@ -12,16 +21,16 @@ Welcome to our AI Healthcare Skin Diseases Website! This platform is dedicated t
 - **Interactive User Interface:** Our website features a user-friendly interface, making it easy for users to navigate, upload images, enter symptoms, and access relevant information.
 - **Secure Data Handling:** We prioritize the security and privacy of user data, ensuring that all information uploaded or entered by users is handled securely and in compliance with data protection regulations.
 
-## Technologies Used
+## Technologies Used 💻
 
 - **Vite:** Vite is used for front-end development, providing a fast and efficient development experience with its modern build tooling capabilities.
 - **Express.js:** Node.js powers the backend of our website, enabling seamless server-side logic and integration with our MongoDB database.
 - **MongoDB:** MongoDB serves as the database for storing user data, medical information, and other relevant content. Its flexibility and scalability make it ideal for managing diverse data types.
 - **Gemini:** Gemini is used for artificial intelligence and machine learning (AIML) capabilities, powering the advanced algorithms for diagnosing skin diseases and providing personalized recommendations.
-- **NodeMailer:** Nodemailer helped us to send confirmation mail to the user
-- **openstreetmap:** Provided us with map and integration
+- **NodeMailer:** Nodemailer helped us to send confirmation mail to the user.
+- **OpenStreetMap:** Provided us with map and integration.
 
-## Installation
+## Installation 🔧
 
 To run the website locally, follow these steps:
 
@@ -40,7 +49,9 @@ To run the website locally, follow these steps:
 
    a. Navigate to the backend directory: `cd backend`
 
-   b. Install dependencies: `npm install` 3. Create a .env file add APIs like this
+   b. Install dependencies: `npm install`
+
+   c. Create a .env file add APIs like this
 
         ```bash
         MONGODB_URI=YOUR_MONGODB_DATABASE_URL
@@ -55,8 +66,8 @@ To run the website locally, follow these steps:
         PASSWORD=EMAIL_ADDRESS_PASSWORD
         ```
 
-   c. Start the development server: `npm run dev`
+   d. Start the development server: `npm run dev`
 
-## Feedback and Support
+## Feedback and Support 🚀
 
 Thank you for using our AI Healthcare Skin Diseases Website! We hope it provides valuable insights and assistance for managing skin-related concerns.
