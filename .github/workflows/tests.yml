@@ -49,6 +49,6 @@ jobs:
         run: npm install --save-dev cypress
 
       - name: Run Cypress Tests
-        run: npx cypress run
+        run: npx cypress run --config-file=frontend/cypress.config.js
 
 
