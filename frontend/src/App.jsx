@@ -16,7 +16,7 @@ import Doctors from "./components/Doctors";
 import Appointment from "./components/Appointment";
 import Response from "./components/Response";
 //import Logout from "./components/Logout";
-import Response from "./components/Response";
+
 
 
 

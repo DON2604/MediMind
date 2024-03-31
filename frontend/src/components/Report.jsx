@@ -3,8 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import logo from "../assets/logo.jpeg";
 import DOCImage from "../assets/TESTING.webp";
-import Response from "./Response";
-import axios from 'axios';
 
 const Report = () => {
   const navigate = useNavigate();
@@ -72,7 +70,7 @@ const Report = () => {
         imagePreview: null
       });
       console.log("Form submitted successfully!");
-      navigate("/Response");
+      navigate("/Response", { state: { responseData: response.data } });
     } catch (error) {
       console.error("Error submitting form:", error);
     }
