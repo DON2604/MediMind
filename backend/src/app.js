@@ -19,8 +19,10 @@ app.use(cookieParser());
 
 import userRouter from "./routes/user.routes.js"
 import diseaseRouter from "./routes/disease.routes.js"
+import mailRouter from "./routes/mail.routes.js"
 
 app.use( "/api/users",userRouter);
 app.use( "/api",diseaseRouter);
+app.use( "/api",mailRouter);
 
 export default app;
