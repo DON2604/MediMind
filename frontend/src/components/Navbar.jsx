@@ -55,10 +55,10 @@ export default function NavHead() {
             Services
           </CustomLink>
           <CustomLink
-            to="/"
+            to="/doctors"
             className="hover:text-green-900 hover:font-medium hover:rounded-full hover:bg-green-100 hover:p-1"
           >
-            Contact
+            Doctors
           </CustomLink>
           <Link
             to="/register"

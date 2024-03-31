@@ -20,7 +20,7 @@ const Hero = () => {
             GlowGenius: Skin AI Rx
           </h1>
 
-          <p className="text-gray-100 text-xl md:text-xl lg:w-[800px] lg:pt-4 lg:text-xl font-normal leading-tight lg:p-20  md:px-0 mb-8 ">
+          <p className="text-gray-100 text-xl md:text-xl lg:w-[800px] lg:pt-4 lg:text-xl font-normal leading-tight lg:p-16 lg:mb-2   md:px-0 mb-8 ">
           Welcome to MediMind-AI, where technology meets compassion to empower
             you on your health journey. Say goodbye to uncertainty and hello to
             confidence as our AI analyzes your skin conditions and provides
@@ -30,19 +30,14 @@ const Hero = () => {
             skin health today and embrace a brighter tomorrow with MediMind-AI.
           </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center lg:flex md:ml-[50px] lg:ml-[100px]">
+          <div className="flex flex-col md:flex-row items-center  lg:flex md:ml-[50px] lg:items-start lg:ml-[100px]">
             <button
               onClick={() => navigate("/register")}
-              className="bg-green-900 hover:bg-slate-400 hover:border-2 text-white font-bold py-2 px-4 rounded-full mb-4 md:mb-0 md:mr-4  mr-4"
+              className="bg-green-900 hover:bg-slate-400 border-2 hover:border-2 text-white font-bold py-6 px-10 rounded-full mb-4 md:mb-0 md:mr-4  mr-4"
             >
-              Try for free
+              Get Started
             </button>
-            <button
-              onClick={() => navigate("/appointment")}
-              className="bg-transparent border border-white hover:bg-white hover:text-blue-500 text-white font-bold py-2 px-4 rounded-full"
-            >
-              Book your Appointment
-            </button>
+            
           </div>
         </section>
       </div>
