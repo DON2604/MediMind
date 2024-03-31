@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css'; 
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import { useNavigate } from 'react-router-dom';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 
 const Maps = () => {
   // const navigate = useNavigate();
@@ -31,9 +30,6 @@ const Maps = () => {
           const { latitude, longitude } = position.coords;
           setCenter([latitude, longitude]);
           generateRandomDoctorsLocations(latitude, longitude);
-          // Once the location is obtained, adjust the map view to focus on it
-          const map = document.querySelector('.leaflet-container').leafletElement;
-          map.setView([latitude, longitude], 13);
         },
         (error) => {
           console.error('Error getting user location:', error);
@@ -46,15 +42,25 @@ const Maps = () => {
 
   const generateRandomDoctorsLocations = (latitude, longitude) => {
     // Generate random locations around the user's location
-    const numDoctors = 3; // Number of random doctor locations to generate
+    const numDoctors = 3;
     const randomLocations = [];
     for (let i = 0; i < numDoctors; i++) {
-      // Generate random latitude and longitude around the user's location
-      const lat = latitude + (Math.random() - 0.5) * 0.1; // Adjust the range for more accurate results
-      const lng = longitude + (Math.random() - 0.5) * 0.1; // Adjust the range for more accurate results
+      const lat = latitude + (Math.random() - 0.5) * 0.1;
+      const lng = longitude + (Math.random() - 0.5) * 0.1;
       randomLocations.push([lat, lng]);
     }
     setDoctorsLocations(randomLocations);
+  };
+
+  const MyComponent = () => {
+    const map = useMap();
+    useEffect(() => {
+      if (center[0] !== 0 && center[1] !== 0) {
+        map.setView(center, 13);
+      }
+    }, [center, map]);
+
+    return null;
   };
 
   return (
@@ -66,21 +72,18 @@ const Maps = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Marker position={center}>
-            <Popup>
-              Your Location
-            </Popup>
+            <Popup>Your Location</Popup>
           </Marker>
           {doctorsLocations.map((pos, index) => (
             <Marker key={index} position={pos}>
-              <Popup>
-                Doctor {index + 1} Location
-              </Popup>
+              <Popup>Doctor {index + 1} Location</Popup>
             </Marker>
           ))}
+          <MyComponent />
         </MapContainer>
       </div>
     </div>
   );
-}
+};
 
 export default Maps;
